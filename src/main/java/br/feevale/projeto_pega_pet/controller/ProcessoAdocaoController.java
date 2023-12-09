@@ -40,12 +40,12 @@ public class ProcessoAdocaoController {
     }
 
     @GetMapping("/{ongId}/ong")
-    public Page<ProcessoAdocaoResponse> listarProcessoAdocaoporOng(@PathVariable Long ongId, Pageable pageable){
+    public Page<ProcessoAdocaoResponse> listarProcessoAdocaoPorOng(@PathVariable Long ongId, Pageable pageable){
         return buscarProcessoAdocaoService.listarPorOng(ongId, pageable);
     }
 
     @GetMapping("/{adotanteId}/adotante")
-    public Page<ProcessoAdocaoResponse> listarProcessoAdocaoporOAdotante(@PathVariable Long adotanteId, Pageable pageable){
+    public Page<ProcessoAdocaoResponse> listarProcessoAdocaoPorAdotante(@PathVariable Long adotanteId, Pageable pageable){
         return buscarProcessoAdocaoService.listarPorAdotante(adotanteId, pageable);
     }
 }

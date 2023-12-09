@@ -10,6 +10,7 @@ public class AnimalMapper {
     public static AnimalResponse toResponse(Animal animal) {
 
         return AnimalResponse.builder()
+                .id(animal.getId())
                 .nome(animal.getNome())
                 .idade(animal.getIdade())
                 .raca(animal.getRaca())

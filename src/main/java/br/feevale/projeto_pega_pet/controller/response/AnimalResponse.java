@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 public class AnimalResponse {
 
+    private Long id;
     private String nome;
     private String idade;
     private AdotanteEOngResponse ong;
