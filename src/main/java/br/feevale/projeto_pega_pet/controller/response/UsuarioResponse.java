@@ -1,14 +1,13 @@
 package br.feevale.projeto_pega_pet.controller.response;
 
 import br.feevale.projeto_pega_pet.domain.Animal;
-import br.feevale.projeto_pega_pet.domain.Contato;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Builder
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class UsuarioResponse {
@@ -17,7 +16,9 @@ public class UsuarioResponse {
     private String nome;
     private String email;
     private String foto;
-    private List<Contato> contatos;
+    private String cnpj;
+    private String preferencias;
+    private List<ContatoResponse> contatos;
     private List<Animal> animais;
 
 }

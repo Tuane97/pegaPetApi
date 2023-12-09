@@ -1,7 +1,6 @@
 package br.feevale.projeto_pega_pet.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.*;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
@@ -17,15 +16,12 @@ public class Contato {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Long contatoId;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     private String nrContato;
-
-    @Email
-    private String email;
 
 }

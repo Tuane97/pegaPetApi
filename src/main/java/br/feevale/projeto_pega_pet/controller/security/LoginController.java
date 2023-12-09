@@ -2,26 +2,22 @@ package br.feevale.projeto_pega_pet.controller.security;
 
 import br.feevale.projeto_pega_pet.controller.request.LoginRequest;
 import br.feevale.projeto_pega_pet.controller.response.UsuarioResponse;
-import br.feevale.projeto_pega_pet.service.LoginService;
+import br.feevale.projeto_pega_pet.service.usuario.LoginService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import static org.springframework.http.HttpStatus.OK;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/login")
+@RequestMapping(value = "/login")
 public class LoginController {
 
-    private final LoginService loginService;
+    @Autowired
+    private LoginService loginService;
 
-    public LoginController(LoginService loginService) {
-        this.loginService = loginService;
-    }
 
     @PostMapping
-    @ResponseStatus(OK)
     public UsuarioResponse login(@Valid @RequestBody LoginRequest request) {
-        loginService.login(request);
+        return loginService.login(request);
     }
 }

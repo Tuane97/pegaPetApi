@@ -20,7 +20,7 @@ public class Ong {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Long ongId;
+    private Long id;
 
     @CNPJ
     private String cnpj;
@@ -29,11 +29,9 @@ public class Ong {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @OneToMany
-    @JoinColumn(name = "animais")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "ong")
     private List<Animal> animais = new ArrayList<>();
 
-    @OneToMany
-    @JoinColumn(name = "processos_adocao")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "ong")
     private List<ProcessoAdocao> processosAdocao = new ArrayList<>();
 }

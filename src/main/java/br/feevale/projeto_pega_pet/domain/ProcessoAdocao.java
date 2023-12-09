@@ -4,7 +4,7 @@ import br.feevale.projeto_pega_pet.domain.enums.StatusProcessoAdocao;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.GenerationType.IDENTITY;
@@ -37,7 +37,9 @@ public class ProcessoAdocao {
     @Enumerated(STRING)
     private StatusProcessoAdocao status;
 
-    private Date dataInicio;
+    private int cdStatus;
+
+    private LocalDate dataInicio;
     private String detalhe;
 
     @ManyToOne

@@ -16,7 +16,7 @@ public class Animal {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Long animalId;
+    private Long id;
 
     private String foto;
     private String nome;
@@ -25,11 +25,11 @@ public class Animal {
     private String caracteristicas;
     private boolean disponivel;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ong_id")
     private Ong ong;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "adotante_id")
     private Adotante adotante;
 

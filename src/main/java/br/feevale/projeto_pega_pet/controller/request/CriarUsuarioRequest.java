@@ -21,6 +21,8 @@ public class CriarUsuarioRequest {
     @NotNull
     private String email;
 
+    private String endereco;
+
     @NotNull
     private String Senha;
 
@@ -30,71 +32,8 @@ public class CriarUsuarioRequest {
     @NotNull
     private String nrContato;
 
-    private boolean ativo;
-
     private String foto;
 
-    public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
-    }
+    private String caracteristicasInteresse;
 
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
-    }
-
-    public String getNome() {
-        return Nome;
-    }
-
-    public void setNome(String nome) {
-        Nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return Senha;
-    }
-
-    public void setSenha(String senha) {
-        Senha = senha;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getNrContato() {
-        return nrContato;
-    }
-
-    public void setNrContato(String nrContato) {
-        this.nrContato = nrContato;
-    }
-
-    public boolean isAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
 }

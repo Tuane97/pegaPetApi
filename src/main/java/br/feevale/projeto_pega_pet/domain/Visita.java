@@ -27,5 +27,6 @@ public class Visita {
     private StatusVisita status;
     private LocalDate data;
     private LocalTime hora;
+    private int cdStatus;
     private String observacao;
 }
