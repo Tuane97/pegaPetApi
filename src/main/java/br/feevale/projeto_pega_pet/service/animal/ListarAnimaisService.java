@@ -1,7 +1,9 @@
 package br.feevale.projeto_pega_pet.service.animal;
 
 import br.feevale.projeto_pega_pet.controller.response.AnimalResponse;
+import br.feevale.projeto_pega_pet.domain.Adotante;
 import br.feevale.projeto_pega_pet.domain.Animal;
+import br.feevale.projeto_pega_pet.domain.Ong;
 import br.feevale.projeto_pega_pet.mapper.AnimalMapper;
 import br.feevale.projeto_pega_pet.repository.AdotanteRepository;
 import br.feevale.projeto_pega_pet.repository.AnimalRepository;
@@ -38,13 +40,15 @@ public class ListarAnimaisService {
         });
     }
 
-    public Page<AnimalResponse> listarPorOng(Long ongId, Pageable pageable) {
-        Page<Animal> animais = animalRepository.findAllByOngIdAndDisponivel(ongId, true, pageable);
+    public Page<AnimalResponse> listarPorOng(Long usuarioId, Pageable pageable) {
+        Ong ong = ongRepository.findByUsuarioId(usuarioId).get();
+        Page<Animal> animais = animalRepository.findAllByOngIdAndDisponivel(ong.getId(), true, pageable);
         return animais.map(AnimalMapper::toResponse);
     }
 
-    public Page<AnimalResponse> listarPorAdotante(Long idAdotante, Pageable pageable) {
-        Page<Animal> animais = animalRepository.findAllByAdotanteId(idAdotante, pageable);
+    public Page<AnimalResponse> listarPorAdotante(Long usuarioId, Pageable pageable) {
+        Adotante adotante = adotanteRepository.findByUsuarioId(usuarioId).get();
+        Page<Animal> animais = animalRepository.findAllByAdotanteId(adotante.getId(), pageable);
         return animais.map(AnimalMapper::toResponse);
     }
 }

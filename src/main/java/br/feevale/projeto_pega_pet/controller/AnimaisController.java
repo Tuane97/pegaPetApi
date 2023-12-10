@@ -48,13 +48,13 @@ public class AnimaisController {
         return listarAnimaisService.listarDisp(pageable);
     }
 
-    @GetMapping("/{ongId}/ong")
-    public Page<AnimalResponse> listarPorOngPaginado(@PathVariable Long ongId, Pageable pageable) {
-        return listarAnimaisService.listarPorOng(ongId, pageable);
+    @GetMapping("/{usuarioId}/ong")
+    public Page<AnimalResponse> listarPorOngPaginado(@PathVariable Long usuarioId, Pageable pageable) {
+        return listarAnimaisService.listarPorOng(usuarioId, pageable);
     }
 
-    @GetMapping("/{idAdotante}/adotante")
-    public Page<AnimalResponse> listarPorAdotatePaginado(@PathVariable Long idAdotante, Pageable pageable) {
-        return listarAnimaisService.listarPorAdotante(idAdotante, pageable);
+    @GetMapping("/{usuarioId}/adotante")
+    public Page<AnimalResponse> listarPorAdotatePaginado(@PathVariable Long usuarioId, Pageable pageable) {
+        return listarAnimaisService.listarPorAdotante(usuarioId, pageable);
     }
 }

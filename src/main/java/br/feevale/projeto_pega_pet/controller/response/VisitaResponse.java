@@ -14,8 +14,11 @@ import java.time.LocalTime;
 public class VisitaResponse {
 
     private Long id;
+    private String animal;
     private StatusVisita status;
     private LocalDate data;
     private LocalTime hora;
     private String observacao;
+    private String Ong;
+    private String Adotante;
 }
