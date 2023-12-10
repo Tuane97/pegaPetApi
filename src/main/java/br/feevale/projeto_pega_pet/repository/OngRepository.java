@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface OngRepository extends JpaRepository<Ong, Long> {
 
     Optional<Ong> findByUsuarioId(Long idUsuario);
+
 }

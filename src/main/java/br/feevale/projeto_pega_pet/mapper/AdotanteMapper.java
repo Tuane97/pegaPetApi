@@ -16,6 +16,7 @@ public class AdotanteMapper {
         return AdotanteEOngResponse.builder()
                 .id(adotante.getId())
                 .nome(adotante.getUsuario().getNome())
+                .foto(adotante.getUsuario().getFoto())
                 .build();
     }
 }

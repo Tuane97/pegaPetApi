@@ -54,4 +54,10 @@ public class BuscarUsuarioService {
         Page<Usuario> usuarios = usuarioRepository.findByNomeContainingIgnoreCaseAndAtivo(text, true, pageable);
         return usuarios.map(UsuarioMapper::toResponse);
     }
+
+    public Page<UsuarioResponse> listarOngs(Pageable pageable) {
+        Page<Usuario>  listUsuarios = usuarioRepository.findAllByTipoUsuario(TipoUsuario.ONG, pageable);
+
+        return listUsuarios.map(UsuarioMapper::toResponse);
+    }
 }

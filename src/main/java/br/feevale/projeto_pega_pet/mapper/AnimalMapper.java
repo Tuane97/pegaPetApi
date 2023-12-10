@@ -14,6 +14,7 @@ public class AnimalMapper {
                 .nome(animal.getNome())
                 .idade(animal.getIdade())
                 .raca(animal.getRaca())
+                .foto(animal.getFoto())
                 .ong(OngMapper.toResponse(animal.getOng()))
                 .adotante(nonNull(animal.getAdotante()) ? AdotanteMapper.toResponse(animal.getAdotante()) : null)
                 .caracteristicas(animal.getCaracteristicas())

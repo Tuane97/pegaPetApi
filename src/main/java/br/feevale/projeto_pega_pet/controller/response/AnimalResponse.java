@@ -12,6 +12,7 @@ public class AnimalResponse {
     private Long id;
     private String nome;
     private String idade;
+    private String foto;
     private AdotanteEOngResponse ong;
     private AdotanteEOngResponse adotante;
     private String raca;

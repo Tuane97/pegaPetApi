@@ -36,6 +36,12 @@ public class UsuarioController {
         return buscarUsuarioService.buscarPorNome(text, pageable);
     }
 
+    @GetMapping("/buscar/ongs")
+    @ResponseStatus(OK)
+    public Page<UsuarioResponse> buscarUsuarioPorNome(Pageable pageable) {
+        return buscarUsuarioService.listarOngs(pageable);
+    }
+
     @PutMapping("/{idUsuario}/desativar")
     @ResponseStatus(OK)
     public void desativarUsuario(@PathVariable Long idUsuario) {

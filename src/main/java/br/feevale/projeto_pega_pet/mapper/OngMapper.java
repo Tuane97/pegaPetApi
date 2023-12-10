@@ -16,6 +16,7 @@ public class OngMapper {
         return AdotanteEOngResponse.builder()
                 .id(ong.getId())
                 .nome(ong.getUsuario().getNome())
+                .foto(ong.getUsuario().getFoto())
                 .build();
     }
 }

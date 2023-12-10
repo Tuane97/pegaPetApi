@@ -19,6 +19,8 @@ public class UsuarioMapper {
                 .nome(usuario.getNome())
                 .email(usuario.getEmail())
                 .foto(usuario.getFoto())
+                .endereco(usuario.getEndereco())
+                .tipoUsuario(usuario.getTipoUsuario())
                 .contatos(getContatos(usuario.getContatos()))
                 .build();
     }

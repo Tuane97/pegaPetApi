@@ -1,6 +1,6 @@
 package br.feevale.projeto_pega_pet.controller.response;
 
-import br.feevale.projeto_pega_pet.domain.Animal;
+import br.feevale.projeto_pega_pet.domain.enums.TipoUsuario;
 import lombok.*;
 
 import java.util.List;
@@ -18,7 +18,8 @@ public class UsuarioResponse {
     private String foto;
     private String cnpj;
     private String preferencias;
+    private TipoUsuario tipoUsuario;
     private List<ContatoResponse> contatos;
-    private List<Animal> animais;
+    private String endereco;
 
 }
