@@ -4,6 +4,7 @@ import br.feevale.projeto_pega_pet.controller.request.EditarProcessoAdocaoReques
 import br.feevale.projeto_pega_pet.domain.ProcessoAdocao;
 import br.feevale.projeto_pega_pet.domain.enums.StatusProcessoAdocao;
 import br.feevale.projeto_pega_pet.domain.enums.StatusVisita;
+import br.feevale.projeto_pega_pet.repository.AnimalRepository;
 import br.feevale.projeto_pega_pet.repository.ProcessoAdocaoRepository;
 import br.feevale.projeto_pega_pet.repository.VisitaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,26 +19,34 @@ public class EditarProcessoAdocaoService {
     private ProcessoAdocaoRepository processoAdocaoRepository;
 
     @Autowired
+    private AnimalRepository animalRepository;
+
+    @Autowired
     private VisitaRepository visitaRepository;
 
     public void editar(EditarProcessoAdocaoRequest request, Long processoId) {
         ProcessoAdocao processoAdocao = processoAdocaoRepository.findById(processoId).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Processo de adoção não foi encontrado"));
 
-        if(request.getStatusProcessoAdocao() == StatusProcessoAdocao.APROVADA
+        if(request.getStatus() == StatusProcessoAdocao.APROVADA
         && processoAdocao.getVisita().getStatus() != StatusVisita.APROVADA){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Visita não foi aprovada ou ainda está pendente");
         }
 
-        if (request.getStatusProcessoAdocao() == StatusProcessoAdocao.CANCELADA || request.getStatusProcessoAdocao() == StatusProcessoAdocao.REPROVADA){
-            processoAdocao.getVisita().setStatus(StatusVisita.valueOf(request.getStatusProcessoAdocao().toString()));
-            processoAdocao.getVisita().setCdStatus(StatusVisita.valueOf(request.getStatusProcessoAdocao().toString()).codigo);
+        if (request.getStatus() == StatusProcessoAdocao.CANCELADA || request.getStatus() == StatusProcessoAdocao.REPROVADA){
+            processoAdocao.getVisita().setStatus(StatusVisita.valueOf(request.getStatus().toString()));
+            processoAdocao.getVisita().setCdStatus(StatusVisita.valueOf(request.getStatus().toString()).codigo);
             visitaRepository.save(processoAdocao.getVisita());
         }
 
-        processoAdocao.setStatus(StatusProcessoAdocao
-                .valueOf(request.getStatusProcessoAdocao().toString()));
+        if(request.getStatus() == StatusProcessoAdocao.APROVADA){
+            processoAdocao.getAnimal().setAdotante(processoAdocao.getAdotante());
+            processoAdocao.getAnimal().setDisponivel(false);
+        }
 
-        processoAdocao.setDetalhe(request.getDetalhes());
+        processoAdocao.setStatus(StatusProcessoAdocao
+                .valueOf(request.getStatus().toString()));
+
+        processoAdocao.setDetalhe(request.getObservacao());
 
         processoAdocaoRepository.save(processoAdocao);
 

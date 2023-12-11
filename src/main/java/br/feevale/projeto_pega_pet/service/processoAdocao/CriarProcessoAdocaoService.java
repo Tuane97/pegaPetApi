@@ -35,8 +35,8 @@ public class CriarProcessoAdocaoService {
 
 
     public void criar(ProcessoAdocaoRequest request) {
-        Ong ong = ongRepository.findById(request.getOngId()).get();
-        Adotante adotante = adotanteRepository.findById(request.getAdotanteId()).get();
+        Ong ong = ongRepository.findByUsuarioId(request.getOngId()).get();
+        Adotante adotante = adotanteRepository.findByUsuarioId(request.getAdotanteId()).get();
         Animal animal = animalRepository.findById(request.getAnimalId()).get();
         Visita visita = criarVisitaService.criar(request.getData(), request.getHora());
         ProcessoAdocao processoAdocao = ProcessoAdocaoMapper.toEntity(request, ong, adotante, animal, visita);

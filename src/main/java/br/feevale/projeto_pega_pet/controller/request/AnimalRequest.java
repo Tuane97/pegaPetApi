@@ -12,6 +12,5 @@ public class AnimalRequest {
     private String idade;
     private String raca;
     private String foto;
-    private boolean adotado;
     private String caracteristicas;
 }

@@ -44,7 +44,7 @@ public class BuscarUsuarioService {
 
             Adotante adotante = adotanteRepository.findByUsuarioId(idUsuario)
                     .orElseThrow(() -> new ResponseStatusException(UNPROCESSABLE_ENTITY, "Usuario não encontrado"));
-            usuarioResponse.setCnpj(adotante.getCaracteristicasInteresse());
+            usuarioResponse.setPreferencias(adotante.getCaracteristicasInteresse());
         }
 
         return usuarioResponse;

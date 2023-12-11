@@ -21,7 +21,6 @@ public class EditarAnimalService {
     public void editar(AnimalRequest request, Long idAnimal) {
         Animal animal = AnimalMapper.toEntity(request);
         animal.setId(idAnimal);
-        animal.setDisponivel(!request.isAdotado());
         Ong ong = ongRepository.findById(request.getOngId()).get();
         animal.setOng(ong);
         animalRepository.save(animal);

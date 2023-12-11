@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @Getter
 public class EditarProcessoAdocaoRequest {
-    private StatusProcessoAdocao statusProcessoAdocao;
-    private String detalhes;
+    private StatusProcessoAdocao status;
+    private String observacao;
 }

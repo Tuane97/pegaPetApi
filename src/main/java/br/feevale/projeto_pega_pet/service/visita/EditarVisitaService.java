@@ -36,6 +36,7 @@ public class EditarVisitaService {
 
         visita.setStatus(StatusVisita.valueOf(request.getStatus().toString()));
         visita.setCdStatus(StatusVisita.valueOf(request.getStatus().toString()).codigo);
+        visita.setObservacao(request.getObservacao());
 
         ProcessoAdocao processoAdocao = processoAdocaoRepository.findByVisitaId(visita.getId()).get();
 
