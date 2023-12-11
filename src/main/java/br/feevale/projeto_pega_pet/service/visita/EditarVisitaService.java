@@ -20,10 +20,10 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 public class EditarVisitaService {
 
     @Autowired
-    VisitaRepository visitaRepository;
+    private VisitaRepository visitaRepository;
 
     @Autowired
-    ProcessoAdocaoRepository processoAdocaoRepository;
+    private ProcessoAdocaoRepository processoAdocaoRepository;
 
     public void editar(VisitaRequest request, Long visitaId) {
 

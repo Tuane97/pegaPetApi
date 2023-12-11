@@ -4,8 +4,6 @@ import br.feevale.projeto_pega_pet.controller.request.LoginRequest;
 import br.feevale.projeto_pega_pet.controller.response.UsuarioResponse;
 import br.feevale.projeto_pega_pet.domain.Usuario;
 import br.feevale.projeto_pega_pet.mapper.UsuarioMapper;
-import br.feevale.projeto_pega_pet.repository.AdotanteRepository;
-import br.feevale.projeto_pega_pet.repository.OngRepository;
 import br.feevale.projeto_pega_pet.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,11 +19,6 @@ public class LoginService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @Autowired
-    private AdotanteRepository adotanteRepository;
-
-    @Autowired
-    private OngRepository ongRepository;
 
     public UsuarioResponse login(LoginRequest request) {
         Usuario usuario = usuarioRepository.findByEmail(request.getEmail())

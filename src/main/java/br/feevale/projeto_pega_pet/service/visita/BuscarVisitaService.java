@@ -20,9 +20,6 @@ public class BuscarVisitaService {
     private VisitaRepository visitaRepository;
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
-
-    @Autowired
     private OngRepository ongRepository;
 
     @Autowired

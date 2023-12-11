@@ -8,7 +8,6 @@ import br.feevale.projeto_pega_pet.mapper.AnimalMapper;
 import br.feevale.projeto_pega_pet.repository.AdotanteRepository;
 import br.feevale.projeto_pega_pet.repository.AnimalRepository;
 import br.feevale.projeto_pega_pet.repository.OngRepository;
-import br.feevale.projeto_pega_pet.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,9 +18,6 @@ public class ListarAnimaisService {
 
     @Autowired
     private AnimalRepository animalRepository;
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
 
     @Autowired
     private AdotanteRepository adotanteRepository;

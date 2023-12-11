@@ -41,6 +41,7 @@ public class EditarProcessoAdocaoService {
         if(request.getStatus() == StatusProcessoAdocao.APROVADA){
             processoAdocao.getAnimal().setAdotante(processoAdocao.getAdotante());
             processoAdocao.getAnimal().setDisponivel(false);
+            animalRepository.save(processoAdocao.getAnimal());
         }
 
         processoAdocao.setStatus(StatusProcessoAdocao

@@ -4,11 +4,9 @@ import br.feevale.projeto_pega_pet.domain.enums.TipoUsuario;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 @Getter
-@Setter
 public class CriarUsuarioRequest {
 
     @NotNull

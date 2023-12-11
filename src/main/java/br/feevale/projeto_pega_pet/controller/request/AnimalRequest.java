@@ -1,9 +1,8 @@
 package br.feevale.projeto_pega_pet.controller.request;
 
 import lombok.Getter;
-import lombok.Setter;
 
-@Setter
+
 @Getter
 public class AnimalRequest {
 

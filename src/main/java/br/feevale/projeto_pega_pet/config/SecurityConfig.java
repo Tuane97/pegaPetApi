@@ -14,30 +14,13 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfig {
-//
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
+
 
     @Bean
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(AbstractHttpConfigurer::disable);
-//                .authorizeHttpRequests(request -> request
-//                        .requestMatchers("*/*").permitAll()
-//                        .requestMatchers("/cadastrar").permitAll()
-//                        .requestMatchers("/login").permitAll()
-//                        .requestMatchers("/usuario/*").permitAll()
-//                        .anyRequest().authenticated()
-//                )
-//                .formLogin(form -> form
-//                    .loginPage("/login")
-//                    .permitAll()
-//                )
-//                .logout(LogoutConfigurer::permitAll);
-
         return http.build();
     }
 
